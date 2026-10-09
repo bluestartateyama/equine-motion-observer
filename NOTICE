@@ -1,0 +1,31 @@
+Equine Motion Observer
+New source, documentation, tests and synthetic examples: MIT license.
+
+Runtime dependencies are installed independently and are not redistributed in
+this source repository. Keep their license notices with installed distributions:
+
+Pillow 12.3.0: MIT-CMU; its Windows wheel also contains separately licensed
+image/font/compression libraries. Consult the complete wheel LICENSE, not just
+its top-level SPDX expression. This software uses Pillow's image capabilities.
+FreeType acknowledgment for relevant Pillow binary builds: portions of that
+dependency are copyright The FreeType Project; all rights reserved.
+
+cryptography 50.0.2: Apache-2.0 OR BSD-3-Clause. It and its binary cryptographic
+components retain their own notices. This project does not redistribute them.
+cffi 2.1.1: MIT-0. pycparser 3.0: BSD-3-Clause.
+Python and Tcl/Tk are independently installed platform requirements with their
+own licenses; neither is part of the proposed source publication.
+
+OpenAI's Sign-in with ChatGPT DevKit has a separate noncommercial license.
+No DevKit code, documentation copies or dependencies are included.
+The OAuth implementation is independently authored from public protocol
+documentation. This MIT license does not relicense OpenAI software,
+grant service access, or grant rights in third-party media or trademarks.
+
+The sign-in button embeds a display rasterization of OpenAI's official white
+ChatGPT sign-in mark (21 x 21), for the designated black Continue with ChatGPT
+button only. This mark remains OpenAI branding and is excluded from the MIT
+grant. It does not endorse the application or grant broader trademark rights.
+Source: https://developers.openai.com/assets/siwc/sign-in-buttons/chatgpt-logo-white.svg
+Guidance: https://developers.openai.com/siwc/website
+Terms: https://openai.com/policies/sign-in-with-chatgpt-terms/

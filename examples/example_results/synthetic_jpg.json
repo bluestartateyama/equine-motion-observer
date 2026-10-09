@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "result_id": "00000000-0000-4000-8000-000000000002",
+  "timestamp": "2026-01-01T00:00:00+00:00",
+  "origin": "synthetic",
+  "image": {
+    "reference": "synthetic_geometry.jpg",
+    "sha256": "efa96812029ea4241d45d95a5d55e84cfdcf475be38fb19609570fa1582e82a5",
+    "width": 720,
+    "height": 480,
+    "format": "JPEG",
+    "order": 0,
+    "detail": "high",
+    "client_processing": "none",
+    "frame_id": "synthetic-frame-1"
+  },
+  "observation": {
+    "subject_id": "synthetic-subject",
+    "features": {
+      "gait": {
+        "description": null,
+        "confidence": null,
+        "status": "unobservable",
+        "reason": "Geometric illustration; no real equine observation is possible."
+      },
+      "posture": {
+        "description": null,
+        "confidence": null,
+        "status": "unobservable",
+        "reason": "Geometric illustration; no real equine observation is possible."
+      },
+      "body_appearance": {
+        "description": null,
+        "confidence": null,
+        "status": "unobservable",
+        "reason": "Geometric illustration; no real equine observation is possible."
+      },
+      "hindlimbs": {
+        "description": null,
+        "confidence": null,
+        "status": "unobservable",
+        "reason": "Geometric illustration; no real equine observation is possible."
+      },
+      "coordination": {
+        "description": null,
+        "confidence": null,
+        "status": "unobservable",
+        "reason": "Geometric illustration; no real equine observation is possible."
+      },
+      "vitality": {
+        "description": null,
+        "confidence": null,
+        "status": "unobservable",
+        "reason": "Geometric illustration; no real equine observation is possible."
+      },
+      "sweat": {
+        "description": null,
+        "confidence": null,
+        "status": "unobservable",
+        "reason": "Geometric illustration; no real equine observation is possible."
+      }
+    },
+    "evidence": []
+  },
+  "human_review": "recorded_by_user",
+  "metrics": {},
+  "server_image_representation": "unverified"
+}

@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.runtime/
+*.log
+*.pem
+*.key
+*.token
+auth.json
+credentials.json
+dist/
+build/
+*.egg-info/
