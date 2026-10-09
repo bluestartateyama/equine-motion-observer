@@ -765,6 +765,41 @@ class StreamAndProviderTests(Base):
         self.assertEqual(self.transport.stream_calls, 1)
 
 class SecurityAndUITests(Base):
+    def test_gui_restores_saved_login_without_oauth_or_network(self):
+        import tkinter as tk
+        from emo.ui import ObserverApp
+        self.register()
+        calls = len(self.transport.calls)
+        root = tk.Tk(); root.withdraw()
+        self.addCleanup(root.destroy)
+        def connect(app):
+            app.auth = self.auth
+            app.provider = self.provider
+        with patch.object(ObserverApp, 'ensure_connection', connect):
+            app = ObserverApp(root, live=True, data_directory=self.directory / 'ui-resume')
+        self.assertIn('認証済み', app.connection_status.get())
+        self.assertIn(app.account.get(), app.account_ids)
+        self.assertEqual(len(self.transport.calls), calls)
+        self.assertFalse(self.provider.available)
+
+    def test_gui_restore_expired_session_does_not_refresh(self):
+        import tkinter as tk
+        from emo.ui import ObserverApp
+        rid = self.register()
+        state = self.store.read()
+        state['registrations'][rid]['tokens']['expires_at'] = 0
+        self.store.write(state)
+        calls = len(self.transport.calls)
+        root = tk.Tk(); root.withdraw()
+        self.addCleanup(root.destroy)
+        def connect(app):
+            app.auth = self.auth
+            app.provider = self.provider
+        with patch.object(ObserverApp, 'ensure_connection', connect):
+            app = ObserverApp(root, live=True, data_directory=self.directory / 'ui-expired')
+        self.assertIn('セッション更新', app.connection_status.get())
+        self.assertEqual(len(self.transport.calls), calls)
+
     def test_local_stop_closes_receiver_without_another_request(self):
         client = HTTPSClient()
         class Receiver:

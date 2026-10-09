@@ -104,6 +104,23 @@ class ObserverApp:
         self._connection_panel(connection)
         if live:
             self.connection_status.set('接続を有効にした起動です。ログイン・送信は各操作の確認後に実行します。')
+            self.restore_saved_connection()
+
+    def restore_saved_connection(self):
+        """Display this app's saved session without OAuth, refresh or network."""
+        self.ensure_connection()
+        self.update_accounts()
+        active = self.auth.store.read()['active']
+        label = next((label for label, rid in self.account_ids.items() if rid == active), None)
+        if label is None:
+            return
+        self.account.set(label)
+        try:
+            self.auth.access(active)
+        except ValueError:
+            self.connection_status.set('登録済み：' + label + '。セッション更新または本人による再認可が必要です。')
+        else:
+            self.connection_status.set('認証済み：' + label + '。モデルと利用枠は解析前に確認します。')
 
     def _connection_panel(self, panel):
         ttk.Label(panel, text='Continue with ChatGPT', font=('Segoe UI', 16, 'bold')).pack(anchor='w')
